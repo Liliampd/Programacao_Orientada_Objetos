@@ -8,26 +8,21 @@ public class Livro {
         this.titulo = titulo;
         this.genero = genero;
         this.autor = autor;
-        this.disponivel = true; // começa como disponível
+        this.disponivel = true; 
     }
 
-    public String getTitulo() {
-        return titulo;
+    public String getTitulo() { return titulo; }
+    public String getGenero() { return genero; }
+    public Autor getAutor() { return autor; }
+    public boolean isDisponivel() { return disponivel; }
+    public void setDisponivel(boolean disponivel) { this.disponivel = disponivel; }
+
+    public boolean requerMaiorIdade() {
+        String g = genero == null ? "" : genero.toLowerCase();
+        return g.contains("18+") || g.contains("adulto");
     }
 
-    public String getGenero() {
-        return genero;
-    }
-
-    public Autor getAutor() {
-        return autor;
-    }
-
-    public boolean isDisponivel() {
-        return disponivel;
-    }
-
-    public void setDisponivel(boolean disponivel) {
-        this.disponivel = disponivel;
+    public String getInfo() {
+        return "Título: " + titulo + ", Gênero: " + genero + ", Autor: " + autor.getNome();
     }
 }
